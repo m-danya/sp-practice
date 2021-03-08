@@ -3,13 +3,14 @@
 This script calculates some statistics about the interaction traces from the [Rico dataset](http://interactionmining.org/rico)
 
 ### How to run
-
+Clone repo and install dependencies:
 ```bash
 git clone https://github.com/m-danya/sp-practice
 cd sp-practice
-pip install -e .
-./get_statistics.py -h
+pip3 install -e .
+chmod +x get_statistics.py
 ```
+Then run by ```./get_statistics.py``` or ```python3 get_statistics.py```
 
 ### Usage
 ```
