@@ -6,28 +6,25 @@ import pandas as pd
 from tqdm import tqdm
 import json
 import glob
+from collections import defaultdict
 
-def gui_tree_dfs(tree, element_names):
-    ans = {
+
+def get_subtree_stats(tree, element_names):  # dfs
+    collected_data = {
         'count': 0,
         'clickable_elements': 0,
     }
     if tree is None:
-        return ans
-    ans['count'] = 1
-    ans['clickable_elements'] = int(tree['clickable'])
-    if tree['class'] in element_names:
-        element_names[tree['class']] += 1
-    else:
-        element_names[tree['class']] = 1
+        return collected_data
+    collected_data['count'] = 1
+    collected_data['clickable_elements'] = int(tree['clickable'])
+    element_names[tree['class']] += 1
 
-    if 'children' not in tree:
-        return ans
-    for child in tree['children']:
-        child_ans = gui_tree_dfs(child, element_names)
-        ans['count'] += child_ans['count']
-        ans['clickable_elements'] += child_ans['clickable_elements']
-    return ans
+    for child in tree.get('children', []):  # default children = [] instead of None
+        child_ans = get_subtree_stats(child, element_names)
+        collected_data['count'] += child_ans['count']
+        collected_data['clickable_elements'] += child_ans['clickable_elements']
+    return collected_data
 
 
 def main():
@@ -44,7 +41,7 @@ def main():
     args = parser.parse_args()
     path = args.i
 
-    element_names = {}
+    element_names = defaultdict(int)
 
     gui_rows = []
     traces_rows = []
@@ -60,7 +57,11 @@ def main():
                     swipes += 1
                 else:
                     taps += 1
-            traces_rows.append({'taps': taps, 'swipes': swipes})
+            traces_rows.append({
+                'taps': taps,
+                'swipes': swipes,
+                'length': len(gestures)
+            })
             for view in (trace / "view_hierarchies").glob("*.json"):
                 if view.name.startswith('.'):
                     # ignore hidden files
@@ -69,7 +70,7 @@ def main():
                     current_json = json.load(json_file)
                 if not current_json:
                     continue
-                stats = gui_tree_dfs(
+                stats = get_subtree_stats(
                     current_json['activity']['root'], element_names)
                 stats['activity_name'] = current_json['activity_name']
                 gui_rows.append(stats)
@@ -104,6 +105,9 @@ def main():
     print('Mean number of taps per trace = %.3f' % df_traces['taps'].mean())
     print('Mean number of swipes per trace = %.3f' %
           df_traces['swipes'].mean())
+
+    print('Mean trace length = %.3f' %
+          df_traces['length'].mean())
     print()
 
 
