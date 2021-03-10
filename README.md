@@ -8,24 +8,17 @@ Clone repo and install dependencies:
 git clone https://github.com/m-danya/sp-practice
 cd sp-practice
 pip3 install -e .
-chmod +x get_statistics.py
 ```
 Then run by ```./get_statistics.py``` or ```python3 get_statistics.py```
 
 ### Usage
-```
-get_statistics.py [-h] -i I [-f F]
 
-optional arguments:
-  -h, --help  show this help message and exit
-  -i I        set input traces directory path (D must directly contain folders with package names)
-  -f F        set number of first traces to process (default: process all of them)
-```
+Type ```./get_statistics.py -h``` to see help message 
 
 ### Sample output
 
 ```
-$ ./get_statistics.py -i "/media/greedisgood/HDD/ML/Rico traces/" -f 250
+$ ./get_statistics.py -i "/media/greedisgood/HDD/ML/Rico traces/" -n 250
 
 100%|██████████████████████████████████████| 250/250 [00:22<00:00, 11.35it/s]
 
