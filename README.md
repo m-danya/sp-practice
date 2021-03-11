@@ -13,7 +13,9 @@ Then run by ```./get_statistics.py``` or ```python3 get_statistics.py```
 
 ### Usage
 
-Type ```./get_statistics.py -h``` to see help message 
+Type ```./get_statistics.py -h``` to see help message.
+
+You can also run unit tests by `pytest`
 
 ### Sample output
 
