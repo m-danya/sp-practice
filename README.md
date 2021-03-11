@@ -7,7 +7,7 @@ Clone repo and install dependencies:
 ```bash
 git clone https://github.com/m-danya/sp-practice
 cd sp-practice
-pip3 install -e .
+pip3 install -r requirements.txt
 ```
 Then run by ```./get_statistics.py``` or ```python3 get_statistics.py```
 
