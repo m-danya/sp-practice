@@ -2,3 +2,5 @@
 start
 research.ipynb
 .vscode
+.pytest_cache
+__pycache__

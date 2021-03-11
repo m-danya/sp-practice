@@ -1,0 +1,42 @@
+{
+  "activity_name": "random_activity",
+  "activity": {
+    "root": {
+      "class": "class1",
+      "clickable": false,
+      "children": [
+        {
+          "class": "class1",
+          "clickable": false,
+          "children": []
+        },
+        {
+          "class": "second_class",
+          "clickable": true,
+          "children": [
+            {
+              "class": "class3",
+              "clickable": false,
+              "children": []
+            }
+          ]
+        },
+        {
+          "class": "second_class",
+          "clickable": true,
+          "children": []
+        },
+        {
+          "class": "second_class",
+          "clickable": true,
+          "children": []
+        },
+        {
+          "class": "second_class",
+          "clickable": true,
+          "children": []
+        }
+      ]
+    }
+  }
+}

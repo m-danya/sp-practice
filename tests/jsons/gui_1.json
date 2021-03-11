@@ -1,0 +1,16 @@
+{
+  "activity_name": "test_activity",
+  "activity": {
+    "root": {
+      "class": "class1",
+      "clickable": false,
+      "children": [
+        {
+          "class": "class1",
+          "clickable": false,
+          "children": []
+        }
+      ]
+    }
+  }
+}

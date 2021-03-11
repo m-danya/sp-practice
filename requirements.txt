@@ -3,5 +3,8 @@
 # sp-practice/get_statistics.py: 5
 pandas == 1.2.3
 
+# sp-practice/tests/test_app.py: 1
+pytest == 6.2.2
+
 # sp-practice/get_statistics.py: 6
-tqdm == 4.58.0
+tqdm == 4.59.0

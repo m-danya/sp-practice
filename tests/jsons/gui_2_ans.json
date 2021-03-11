@@ -1,0 +1,10 @@
+{
+    "count": 7,
+    "clickable_elements": 4,
+    "activity_name": "random_activity",
+    "element_names": {
+        "class1": 2,
+        "second_class": 4,
+        "class3": 1
+    }
+}

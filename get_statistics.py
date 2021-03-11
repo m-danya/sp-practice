@@ -97,6 +97,9 @@ def main():
 
     for application in tqdm(application_folders):
         for trace in [x for x in application.iterdir() if x.is_dir()]:
+            if not (trace / "gestures.json").is_file():
+                # gestures doesn't exist => bad directory, skip
+                continue
             with open(trace / "gestures.json") as json_file:
                 gestures = json.load(json_file)
             traces_rows.append(get_traces_stats(gestures))
