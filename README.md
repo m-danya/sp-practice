@@ -7,7 +7,7 @@ Clone repo and install dependencies:
 ```bash
 git clone https://github.com/m-danya/sp-practice
 cd sp-practice
-pip3 install -e .
+pip3 install -r requirements.txt
 ```
 Then run by ```./get_statistics.py``` or ```python3 get_statistics.py```
 
@@ -19,7 +19,6 @@ Type ```./get_statistics.py -h``` to see help message
 
 ```
 $ ./get_statistics.py -i "/media/greedisgood/HDD/ML/Rico traces/" -n 250
-
 100%|██████████████████████████████████████| 250/250 [00:22<00:00, 11.35it/s]
 
 
@@ -49,6 +48,7 @@ TRACES STATISTICS
 
 Mean number of taps per trace = 3.844
 Mean number of swipes per trace = 0.866
+Mean trace length = 4.710
 ```
 
 ### Additional info
