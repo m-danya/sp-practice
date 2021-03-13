@@ -29,6 +29,10 @@ def get_jsons_list(type):
 @pytest.fixture(params=get_jsons_list('gui_trees'),
                 ids=[str(s.name) for s in get_jsons_list('gui_trees')])
 def gui_jsons(request):
+
+
+
+    
     return get_data_and_expected(request.param)
 
 
