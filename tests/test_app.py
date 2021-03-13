@@ -7,6 +7,11 @@ from collections import defaultdict
 from get_statistics import get_gui_stats, get_traces_stats
 
 
+def get_jsons_list(type):
+    files = (Path(__file__).parent / "jsons" / f"{type}").glob("*.json")
+    return [x for x in files if 'expected' not in x.name]
+
+
 def test_get_gui_stats(gui_jsons):
     element_names = defaultdict(int)
     stats = get_gui_stats(gui_jsons['data'], element_names)
@@ -19,11 +24,6 @@ def test_get_gui_stats(gui_jsons):
 def test_get_traces_stats(trace_json):
     stats = get_traces_stats(trace_json['data'])
     assert stats == trace_json['expected']
-
-
-def get_jsons_list(type):
-    files = (Path(__file__).parent / "jsons" / f"{type}").glob("*.json")
-    return [x for x in files if 'expected' not in x.name]
 
 
 @pytest.fixture(params=get_jsons_list('gui_trees'),
