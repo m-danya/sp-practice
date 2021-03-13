@@ -6,7 +6,6 @@ orbs:
   # so you dont have to copy and paste it everywhere.
   # See the orb documentation here: https://circleci.com/developer/orbs/orb/circleci/python
   python: circleci/python@1.2
-  flake8: arrai/flake8@6.1.0
 
 workflows:
   sample:  # This is the name of the workflow, feel free to change it to better match your workflow.
