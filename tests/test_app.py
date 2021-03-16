@@ -23,7 +23,7 @@ def get_jsons_list(type):
 
 def test_get_gui_stats(gui_jsons):
     '''
-    Tests test_get_gui_stats function
+    Tests get_gui_stats function
 
             Parameters:
                     gui_jsons ({'data': test_data, 'expected': expected_data})
@@ -38,7 +38,7 @@ def test_get_gui_stats(gui_jsons):
 
 def test_get_traces_stats(trace_json):
     '''
-    Tests test_get_traces_stats function
+    Tests get_traces_stats function
 
             Parameters:
                     trace_json ({'data': test_data, 'expected': expected_data})
