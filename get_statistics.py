@@ -9,12 +9,32 @@ from collections import defaultdict
 
 
 def get_gui_stats(tree_json, element_names):
+    '''
+    Obtains gui statistics from given json
+
+            Parameters:
+                    tree_json (object): gui tree
+                    element_names (defaultdict): can be empty. will be
+                            updated with encountered elements
+
+            Returns:
+                    stats (object): obtained statistics
+    '''
     stats = get_subtree_stats(tree_json['activity']['root'], element_names)
     stats['activity_name'] = tree_json['activity_name']
     return stats
 
 
 def get_traces_stats(gestures_json):
+    '''
+    Obtains traces statistics from given json
+
+            Parameters:
+                    gestures_json (object): gui tree
+
+            Returns:
+                    stats (object): obtained statistics
+    '''
     taps, swipes = 0, 0
     for screen in gestures_json:
         if len(gestures_json[screen]) > 1:
@@ -28,7 +48,19 @@ def get_traces_stats(gestures_json):
     }
 
 
-def get_subtree_stats(tree, element_names):  # dfs
+def get_subtree_stats(tree, element_names):
+    '''
+    Calculates given subtree stats and merges it with subtree children's stats.
+    (Depth-first search)
+
+            Parameters:
+                    tree (object): subtree to observe
+                    element_names (defaultdict): can be empty. will be
+                            updated with encountered elements
+
+            Returns:
+                    collected_data (object): obtained statistics
+    '''
     collected_data = {
         'count': 0,
         'clickable_elements': 0,
@@ -47,6 +79,14 @@ def get_subtree_stats(tree, element_names):  # dfs
 
 
 def print_statistics(df_gui, df_traces, element_names):
+    '''
+    Just print given stats.
+
+            Parameters:
+                    df_gui (object): gui_trees stats
+                    df_traces (object): traces stats
+                    element_names (dict): frequency of occurrence of elements
+    '''
     print('\n')
     print('#' * 30, end='\n\n')
     print('GUI STATISTICS')
