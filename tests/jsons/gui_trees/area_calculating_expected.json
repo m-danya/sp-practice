@@ -1,0 +1,10 @@
+{
+    "count": 2,
+    "clickable_elements": 1,
+    "activity_name": "click area test",
+    "element_names": {
+        "class1": 1,
+        "class123": 1
+    },
+    "clickable_areas": [40000]
+}

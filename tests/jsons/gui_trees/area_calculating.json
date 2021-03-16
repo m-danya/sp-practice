@@ -1,0 +1,17 @@
+{
+  "activity_name": "click area test",
+  "activity": {
+    "root": {
+      "class": "class1",
+      "clickable": false,
+      "children": [
+        {
+          "class": "class123",
+          "clickable": true,
+          "children": [],
+          "bounds": [0, 0, 200, 200]
+        }
+      ]
+    }
+  }
+}

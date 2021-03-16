@@ -4,5 +4,6 @@
     "activity_name": "test_activity",
     "element_names": {
         "class1": 2
-    }
+    },
+    "clickable_areas": []
 }
