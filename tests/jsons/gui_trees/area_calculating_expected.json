@@ -6,5 +6,5 @@
         "class1": 1,
         "class123": 1
     },
-    "clickable_areas": [40000]
+    "clickable_areas": [0.2]
 }

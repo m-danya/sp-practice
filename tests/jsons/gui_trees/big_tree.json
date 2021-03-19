@@ -4,6 +4,12 @@
     "root": {
       "class": "class1",
       "clickable": false,
+      "bounds": [
+        0,
+        0,
+        400,
+        500
+      ],
       "children": [
         {
           "class": "class1",
@@ -13,6 +19,13 @@
         {
           "class": "second_class",
           "clickable": true,
+          "bounds": [
+            0,
+            0,
+            100,
+            50
+          ],
+          "visible-to-user": true,
           "children": [
             {
               "class": "class3",
@@ -24,16 +37,37 @@
         {
           "class": "second_class",
           "clickable": true,
+          "visible-to-user": true,
+          "bounds": [
+            0,
+            0,
+            100,
+            50
+          ],
           "children": []
         },
         {
           "class": "second_class",
           "clickable": true,
+          "bounds": [
+            0,
+            0,
+            100,
+            50
+          ],
+          "visible-to-user": true,
           "children": []
         },
         {
           "class": "second_class",
           "clickable": true,
+          "bounds": [
+            0,
+            0,
+            100,
+            50
+          ],
+          "visible-to-user": true,
           "children": []
         }
       ]

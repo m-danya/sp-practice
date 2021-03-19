@@ -1,5 +1,6 @@
 .ipynb_checkpoints
 start
+start-full
 .vscode
 .pytest_cache
 __pycache__

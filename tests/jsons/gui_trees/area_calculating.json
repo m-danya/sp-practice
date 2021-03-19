@@ -4,10 +4,12 @@
     "root": {
       "class": "class1",
       "clickable": false,
+      "bounds": [0, 0, 400, 500],
       "children": [
         {
           "class": "class123",
           "clickable": true,
+          "visible-to-user": true,
           "children": [],
           "bounds": [0, 0, 200, 200]
         }

@@ -20,38 +20,48 @@ You can also run unit tests by `pytest`
 ### Sample output
 
 ```
-$ ./get_statistics.py -i "/media/greedisgood/HDD/ML/Rico traces/" -n 250
-100%|██████████████████████████████████████| 250/250 [00:22<00:00, 11.35it/s]
+$ ./get_statistics.py -i "/media/greedisgood/HDD/ML/Rico traces/"
+100%|███████████████████████████████████████| 9385/9385 [21:58<00:00,  7.12it/s]
 
 
 ##############################
 
 GUI STATISTICS
 
-Mean number of elements in the GUI screen tree = 79.652
-Mean number of clickable elements in the GUI screen tree = 14.413
+Mean number of elements in the GUI screen tree = 96.135
+Mean number of clickable elements in the GUI screen tree = 7.793
 
 Top-10 elements:
 
-android.widget.LinearLayout: 18058 times
-android.support.v7.widget.AppCompatTextView: 8659 times
-android.widget.RelativeLayout: 8635 times
-android.widget.TextView: 8150 times
-android.widget.ImageView: 6612 times
-android.widget.FrameLayout: 6000 times
-android.view.View: 5338 times
-android.support.v7.widget.AppCompatImageView: 4293 times
-android.widget.Button: 1939 times
-android.view.ViewStub: 1575 times
+android.widget.LinearLayout: 1059174 times
+android.support.v7.widget.AppCompatTextView: 598281 times
+android.widget.RelativeLayout: 513712 times
+android.widget.TextView: 491851 times
+android.widget.ImageView: 440930 times
+android.widget.FrameLayout: 395973 times
+android.support.v7.widget.AppCompatImageView: 369789 times
+android.view.View: 326067 times
+android.view.ViewStub: 85707 times
+com.android.internal.policy.PhoneWindow$DecorView: 66805 times
 
 ##############################
 
 TRACES STATISTICS
 
-Mean number of taps per trace = 3.844
-Mean number of swipes per trace = 0.866
-Mean trace length = 4.710
+Mean number of taps per trace = 5.138
+Mean number of swipes per trace = 1.300
+Mean trace length = 6.438
+
 ```
 
 ### Additional info
 ```clean_cache``` script [cleans the linux cache](https://unix.stackexchange.com/questions/87908/how-do-you-empty-the-buffers-and-cache-on-a-linux-system) to make script's performance testing fair when running multiple times consecutively
+
+### Several histograms
+![1](research/1.jpg?raw=true)
+
+![2](research/2.jpg?raw=true)
+
+![3](research/3.jpg?raw=true)
+
+![4](research/4.jpg?raw=true)

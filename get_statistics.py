@@ -20,7 +20,11 @@ def get_gui_stats(tree_json, element_names):
             Returns:
                     stats (object): obtained statistics
     '''
-    stats = get_subtree_stats(tree_json['activity']['root'], element_names)
+    root_bounds = tree_json['activity']['root']['bounds']
+    root_bounds[0], root_bounds[1] = 0, 0  # try to fix the shift
+    root_area = get_bounds_area(root_bounds)
+    stats = get_subtree_stats(tree_json['activity']['root'], element_names,
+                              root_area)
     stats['activity_name'] = tree_json['activity_name']
     return stats
 
@@ -58,7 +62,7 @@ def get_bounds_area(bounds):
     return dx * dy
 
 
-def get_subtree_stats(tree, element_names):
+def get_subtree_stats(tree, element_names, root_area):
     '''
     Calculates given subtree stats and merges it with subtree children's stats.
     (Depth-first search)
@@ -67,6 +71,7 @@ def get_subtree_stats(tree, element_names):
                     tree (object): subtree to observe
                     element_names (defaultdict): can be empty. will be
                             updated with encountered elements
+                    root_area (int): area of root view
 
             Returns:
                     collected_data (object): obtained statistics
@@ -79,15 +84,15 @@ def get_subtree_stats(tree, element_names):
     if tree is None:
         return collected_data
     collected_data['count'] = 1
-    collected_data['clickable_elements'] = int(tree['clickable'])
-    if tree['clickable'] and 'bounds' in tree.keys():
+    if tree['clickable'] and tree['visible-to-user']:
+        collected_data['clickable_elements'] += 1
         area = get_bounds_area(tree['bounds'])
-        if area > 0 and area < 1500 * 500:  # reasonable bounds only
-            collected_data['clickable_areas'].append(area)
+        if area > 0 and area < root_area:  # reasonable bounds only
+            collected_data['clickable_areas'].append(area / root_area)
     element_names[tree['class']] += 1
 
     for child in tree.get('children', []):  # default = [] instead of None
-        child_ans = get_subtree_stats(child, element_names)
+        child_ans = get_subtree_stats(child, element_names, root_area)
         collected_data['count'] += child_ans['count']
         collected_data['clickable_elements'] += child_ans['clickable_elements']
         collected_data['clickable_areas'].extend(child_ans['clickable_areas'])

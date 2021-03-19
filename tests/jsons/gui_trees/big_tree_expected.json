@@ -7,5 +7,5 @@
         "second_class": 4,
         "class3": 1
     },
-    "clickable_areas": []
+    "clickable_areas": [0.025, 0.025, 0.025, 0.025]
 }
